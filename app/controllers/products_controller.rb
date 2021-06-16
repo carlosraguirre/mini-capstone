@@ -3,4 +3,9 @@ class ProductsController < ApplicationController
     product = Product.first
     render json: product.as_json
   end
+
+  def show_all_products
+    product = Product.all
+    render json: product.as_json
+  end
 end
