@@ -9,4 +9,13 @@ Rails.application.routes.draw do
 
   # create route
   post "/products", controller: "products", action: "create"
+
+  # update route
+
+  patch "/products/:id", controller: "products", action: "update"
+
+  # delete route
+
+  delete "/products/:id", controller: "products", action: "destroy"
+
 end
