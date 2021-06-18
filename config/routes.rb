@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get "/products/:id", controller: "products", action: "show"
 
   # create route
-  post "/photos", controller: "products", action: "create"
+  post "/products", controller: "products", action: "create"
 end
