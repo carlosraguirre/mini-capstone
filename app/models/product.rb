@@ -7,6 +7,8 @@ class Product < ApplicationRecord
   validates :description, length: {in: 10..500}
   validates :description, presence: true
 
+  belongs_to: supplier
+
   def is_discounted?
     if price < 10
       true
@@ -21,9 +23,5 @@ class Product < ApplicationRecord
 
   def total
     tax + price
-  end
-
-  def supplier
-    Supplier.find_by(id: supplier_id)
   end
 end
