@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
 
   def index
-    product = Product.all
-    render json: product
+    products = Product.all
+    render json: products
   end
 
   def show
@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
     product = Product.new(
       name: params[:name],
       price: params[:price],
-      image_url: params[:image_url],
       description: params[:description]
     )
 
@@ -32,7 +31,6 @@ class ProductsController < ApplicationController
 
     product.name = params[:name]
     product.price = params[:price]
-    product.image_url = params[:image_url]
     product.description = params[:description]
 
     if product.save
