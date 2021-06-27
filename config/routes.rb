@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   # delete route
   delete "/products/:id", controller: "products", action: "destroy"
 
+  # user create
+  post "/users", controller: "users", action: "create"
+
+
 end
