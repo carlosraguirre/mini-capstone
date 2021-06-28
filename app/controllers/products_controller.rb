@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    if current_suer
+    if current_user
       products = Product.all
       render json: products.as_json
     else
