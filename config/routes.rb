@@ -22,4 +22,16 @@ Rails.application.routes.draw do
   # user sign in
   post "/sessions" => "sessions#create"
 
+  # order create
+  post "/orders" => "orders#create"
+
+  # order show
+  get "/orders/:id" => "orders#show"
+
+  # order index
+  get "/orders" => "orders#index"
+
+  # user index
+  get "/users" => "users#index"
+
 end
