@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user
+
   def create
     product = Product.find_by(id: params[:product_id])
     calculated_subtotal = params[:quantity].to_i * product.price
@@ -27,5 +29,5 @@ class OrdersController < ApplicationController
     orders = Order.where(user_id: current_user.id)
     render json: orders
   end
-
 end
+

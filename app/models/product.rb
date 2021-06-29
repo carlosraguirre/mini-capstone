@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
   validates :price, numericality: {greater_than: 0}
-  validates :inventory_count, numericality: {only_integer: true}
+  # validates :inventory_count, numericality: {only_integer: true}
   validates :description, length: {in: 10..500}
   validates :description, presence: true
 
