@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   def create
-
     product = Product.find_by(id: params[:product_id])
     calculated_subtotal = params[:quantity].to_i * product.price
     #call tax method from product method file
@@ -15,26 +14,18 @@ class OrdersController < ApplicationController
       tax: calculated_tax,
       total: calculated_total
     )
-    order.save!
+    order.save
     render json: order
   end
 
   def show
-    if current_user
-      order = Order.find_by(id: params[:id])
-      render json: order
-    else
-      render json: {}
-    end
+    order = Order.find_by(id: params[:id], user_id: current_user.id)
+    render json: order
   end
 
   def index
-    if current_user
-      order = Order.all
-      render json: order
-    else
-      render json: {}
-    end
+    orders = Order.where(user_id: current_user.id)
+    render json: orders
   end
 
 end
