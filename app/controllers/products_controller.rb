@@ -31,9 +31,9 @@ class ProductsController < ApplicationController
     the_id = params[:id]
     product = Product.find_by(id: the_id)
 
-    product.name = params[:name]
-    product.price = params[:price]
-    product.description = params[:description]
+    product.name = params[:name] || product.name
+    product.price = params[:price] || product.price
+    product.description = params[:description] || product.description
 
     if product.save
       render json: product
