@@ -36,6 +36,6 @@ Rails.application.routes.draw do
 
   # user update
 
-  patch "/users/:id" => "users#index"
+  patch "/users/:id" => "users#update"
 
 end
