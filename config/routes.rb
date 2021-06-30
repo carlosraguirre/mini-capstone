@@ -34,4 +34,8 @@ Rails.application.routes.draw do
   # user index
   get "/users" => "users#index"
 
+  # user update
+
+  patch "/users/:id" => "users#index"
+
 end
