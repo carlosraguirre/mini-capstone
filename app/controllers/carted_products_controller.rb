@@ -14,7 +14,6 @@ class CartedProductsController < ApplicationController
 
   def update
     carted_product = CartedProduct.find_by(id: params[:id])
-    carted_product.product_id = params[:product_id] || carted_product.product_id
     carted_product.quantity = params[:quantity] || carted_product.quantity
     carted_product.order_id = params[:order_id] || carted_product.order_id
 
@@ -23,5 +22,10 @@ class CartedProductsController < ApplicationController
     else
       render json: {error: carted_product.errors.full_messages}, status: :unprocessable_entity
     end
+  end
+
+  def index
+    carted_products = CartedProduct.where(user_id: current_user.id)
+    render json: carted_products
   end
 end
