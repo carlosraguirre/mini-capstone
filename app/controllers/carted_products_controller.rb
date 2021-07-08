@@ -28,4 +28,12 @@ class CartedProductsController < ApplicationController
     carted_products = CartedProduct.where(user_id: current_user.id, status: "carted")
     render json: carted_products
   end
+
+  def destroy
+    carted_product = CartedProduct.find_by(id: params[:id])
+
+    carted_product.destroy
+    json_carted_product = carted_product.as_json
+    json_carted_product[:message] = "you have deleted the following item"
+  end
 end

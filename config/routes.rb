@@ -10,14 +10,16 @@ Rails.application.routes.draw do
   post "/users", controller: "users", action: "create"
   post "/sessions" => "sessions#create"
   patch "/users/:id" => "users#update"
+  get "/users" => "users#index"
 
   post "/orders" => "orders#create"
   get "/orders/:id" => "orders#show"
   get "/orders" => "orders#index"
-  get "/users" => "users#index"
+ 
 
   post "/carted_products" => "carted_products#create"
   patch "/carted_products/:id" => "carted_products#update"
   get "/carted_products" => "carted_products#index"
+  delete "/carted_products/:id" => "carted_products#destroy"
 
 end
